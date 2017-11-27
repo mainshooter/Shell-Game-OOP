@@ -1,4 +1,4 @@
-/* CSS styling */
+<style>
 body { text-align:center; font-family: arial; }
 .cups { margin:20px auto 70px; width:520px; height:183px; border-bottom:3px solid #000;
 }
@@ -10,3 +10,4 @@ height:41px; background:url(ball.png); } .putdown { margin-top:70px; } .putdown 
 .player { margin:0 auto; width:92px; height:243px; background:transparent url(player.png) no-repeat 0 60px; }
 .clear { clear:both; }
 .red { background-color:red; } .yellow { background-color:yellow; } .blue { background-color:blue; }
+</style>

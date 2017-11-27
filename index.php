@@ -1,3 +1,4 @@
+<?php include 'view.php'; ?>
 <ol>
   <li>5</li>
   <li>3</li>
@@ -15,3 +16,11 @@
   $Cup2 = new Cup('yellow', 'plastic');
   $Cup3 = new Cup('yellow', 'plastic');
 ?>
+<body>
+  <div class="cups">
+  <div class="cup yellow liftup">
+  <div class="ball red"></div> </div>
+  <div class="cup yellow putdown"></div> <div class="cup yellow"></div>
+  <div class="clear"></div> </div>
+  <?php echo $Player->show(); ?>
+</body>

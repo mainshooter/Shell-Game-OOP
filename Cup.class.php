@@ -2,13 +2,15 @@
 
   class Cup {
     private $color;
+    private $type;
 
     /**
      * Sets the color of the cup
      * @param string $color [description]
      */
-    public function __construct(string $color) {
-      $this->color = $color
+    public function __construct(string $color, string $type) {
+      $this->color = $color;
+      $this->type = $type;
     }
 
     /**

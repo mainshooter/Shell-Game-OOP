@@ -9,9 +9,8 @@
      * @param [string] $color [Our color]
      * @param [string] $type [The material of the cub]
      */
-    public function __construct(string $color, string $type) {
+    public function __construct(string $color) {
       $this->color = $color;
-      $this->type = $type;
     }
   }
 

@@ -9,9 +9,17 @@
      * @param string $playerName [The name of the player]
      * @param int    $amount     [The amount we have to spend]
      */
-    public function __construct(string $playerName, int $amount) {
+    public function __construct($playerName, $amount) {
       $this->name = $playerName;
-      $this->amount = $amount
+      $this->amount = $amount;
+    }
+
+    public function show() {
+      return("
+      <div class='player'>
+        <strong>{$this->name}:{$this->amount}</strong>
+      </div>
+      ");
     }
   }
 
