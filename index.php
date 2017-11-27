@@ -8,5 +8,6 @@
   require_once 'Player.class.php';
 
   $Ball = new Ball('red');
+  $Player = new Player('Peter', 100);
 
 ?>
