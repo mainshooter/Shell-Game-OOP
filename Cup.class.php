@@ -3,6 +3,7 @@
   class Cup {
     private $color;
     private $type;
+    private $status;
 
     /**
      * Sets the color of the cup
@@ -11,24 +12,25 @@
     public function __construct(string $color, string $type) {
       $this->color = $color;
       $this->type = $type;
+      $this->liftDown();
     }
 
     public function show() {
-      return("<div class='cup {$this->color} liftup'></div>");
+      return("<div class='cup {$this->color} {$this->status}'></div>");
     }
 
     /**
      * Lifst the cup up
      */
     public function liftUp() {
-
+      $this->status = 'liftup';
     }
 
     /**
      * Puts the cub down
      */
     public function liftDown() {
-
+      $this->status = 'liftdown';
     }
   }
 

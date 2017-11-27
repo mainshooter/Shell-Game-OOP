@@ -14,6 +14,7 @@
 
   $Cup1 = new Cup('yellow', 'plastic');
   $Cup2 = new Cup('yellow', 'plastic');
+  $Cup1->liftUp();
   $Cup3 = new Cup('yellow', 'plastic');
 ?>
 <body>
