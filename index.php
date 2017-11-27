@@ -16,25 +16,46 @@
     new Cup('yellow', 'plastic'),
     new Cup('yellow', 'plastic'),
   ];
-  $Cups[0]->liftUp();
-  $randomNummer = random_int(1,3);
+  $randomNummer = random_int(0,2);
 ?>
 <body>
-  <div class="cups">
-    <?php
+  <?php
 
-      for ($i=0; $i < count($Cups); $i++) {
-        if ($i == $randomNummer) {
-          echo $Cups[$i]->show();
-          echo $Ball->show();
-        }
+  if (ISSET($_GET['choose'])) {
+    $chosenNumber = $_GET['choose'] - 1;
+    $Cups[$chosenNumber]->liftUp();
+    generateField();
+  }
 
-        else {
-          echo $Cups[$i]->show();
-        }
+  else {
+      generateField();
+  }
+  function generateField() {
+    global $Cups;
+    global $Player;
+    global $Ball;
+    global $randomNummer;
+
+    echo '<div class="cups">';
+
+    for ($i=0; $i < count($Cups); $i++) {
+      if ($i == $randomNummer) {
+        echo $Cups[$i]->show();
+        echo $Ball->show();
       }
-    ?>
-    <div class="clear"></div>
-  </div>
-  <?php echo $Player->show(); ?>
+
+      else {
+        echo $Cups[$i]->show();
+      }
+    }
+    echo '    <div class="clear"></div>
+      </div>';
+      echo $Player->show();
+  }
+
+  ?>
+  <a href="?choose=1"><button type='button'>1</button></a>
+  <a href="?choose=2"><button type='button'>2</button></a>
+  <a href="?choose=3"><button type='button'>3</button></a>
+
 </body>
