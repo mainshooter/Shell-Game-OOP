@@ -11,19 +11,20 @@
 
   $Ball = new Ball('red');
   $Player = new Player('Peter', 100);
-
-  $Cup1 = new Cup('yellow', 'plastic');
-  $Cup2 = new Cup('yellow', 'plastic');
-  $Cup1->liftUp();
-  $Cup3 = new Cup('yellow', 'plastic');
+  $Cups = [
+    new Cup('yellow', 'plastic'),
+    new Cup('yellow', 'plastic'),
+    new Cup('yellow', 'plastic'),
+  ];
+  $Cups[0]->liftUp();
 ?>
 <body>
   <div class="cups">
-    <?php echo $Cup1->show(); ?>
+    <?php echo $Cups[0]->show(); ?>
     <?php echo $Ball->show(); ?>
 
-    <?php echo $Cup2->show(); ?>
-    <?php echo $Cup3->show(); ?>
+    <?php echo $Cups[1]->show(); ?>
+    <?php echo $Cups[2]->show(); ?>
     <div class="clear"></div>
   </div>
   <?php echo $Player->show(); ?>
