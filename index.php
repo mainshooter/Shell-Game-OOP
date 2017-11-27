@@ -18,9 +18,12 @@
 ?>
 <body>
   <div class="cups">
-  <div class="cup yellow liftup">
-  <div class="ball red"></div> </div>
-  <div class="cup yellow putdown"></div> <div class="cup yellow"></div>
-  <div class="clear"></div> </div>
+    <?php echo $Cup1->show(); ?>
+    <?php echo $Ball->show(); ?>
+
+    <?php echo $Cup2->show(); ?>
+    <?php echo $Cup3->show(); ?>
+    <div class="clear"></div>
+  </div>
   <?php echo $Player->show(); ?>
 </body>

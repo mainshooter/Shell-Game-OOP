@@ -13,6 +13,10 @@
       $this->type = $type;
     }
 
+    public function show() {
+      return("<div class='cup {$this->color} liftup'></div>");
+    }
+
     /**
      * Lifst the cup up
      */
