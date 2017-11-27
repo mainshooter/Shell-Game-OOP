@@ -17,14 +17,23 @@
     new Cup('yellow', 'plastic'),
   ];
   $Cups[0]->liftUp();
+  $randomNummer = random_int(1,3);
 ?>
 <body>
   <div class="cups">
-    <?php echo $Cups[0]->show(); ?>
-    <?php echo $Ball->show(); ?>
+    <?php
 
-    <?php echo $Cups[1]->show(); ?>
-    <?php echo $Cups[2]->show(); ?>
+      for ($i=0; $i < count($Cups); $i++) {
+        if ($i == $randomNummer) {
+          echo $Cups[$i]->show();
+          echo $Ball->show();
+        }
+
+        else {
+          echo $Cups[$i]->show();
+        }
+      }
+    ?>
     <div class="clear"></div>
   </div>
   <?php echo $Player->show(); ?>
