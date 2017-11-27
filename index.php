@@ -5,6 +5,8 @@
 <?php
 
   require_once 'Ball.class.php';
+  require_once 'Player.class.php';
+
   $Ball = new Ball('red');
 
 ?>
