@@ -4,7 +4,7 @@
 </ol>
 <?php
 
-  require_once 'Class-ball.class.php';
-
+  require_once 'Ball.class.php';
+  $Ball = new Ball('red');
 
 ?>
