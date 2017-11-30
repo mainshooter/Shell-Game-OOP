@@ -42,14 +42,15 @@
       if ($i == $randomNummer) {
         echo $Cups[$i]->show();
         echo $Ball->show();
+        echo "</div>";
       }
 
       else {
         echo $Cups[$i]->show();
+        echo "</div>";
       }
     }
-    echo '    <div class="clear"></div>
-      </div>';
+    echo '</div><div class="clear"></div>';
       echo $Player->show();
   }
 

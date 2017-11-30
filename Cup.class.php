@@ -4,6 +4,7 @@
     private $color;
     private $type;
     private $status;
+    private $containingBall = null;
 
     /**
      * Sets the color of the cup
@@ -16,7 +17,7 @@
     }
 
     public function show() {
-      return("<div class='cup {$this->color} {$this->status}'></div>");
+      return("<div class='cup {$this->color} {$this->status}'>");
     }
 
     /**
