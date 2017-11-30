@@ -1,7 +1,6 @@
 <?php
   session_start();
   include 'view.php';
-  var_dump($_SESSION);
 ?>
 <ol>
   <li>5</li>
