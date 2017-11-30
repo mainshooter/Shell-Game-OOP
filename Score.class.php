@@ -1,6 +1,6 @@
 <?php
 
-  class Game {
+  class Score {
     private $amountPerGame;
 
     /**
