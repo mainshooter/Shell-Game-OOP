@@ -1,4 +1,8 @@
-<?php include 'view.php'; ?>
+<?php
+  session_start();
+  include 'view.php';
+  var_dump($_SESSION);
+?>
 <ol>
   <li>5</li>
   <li>3</li>
@@ -8,7 +12,9 @@
   require_once 'Ball.class.php';
   require_once 'Player.class.php';
   require_once 'Cup.class.php';
+  require_once 'Game.class.php';
 
+  $Game = new Game();
   $Ball = new Ball('red');
   $Player = new Player('Peter', 100);
   $Cups = [
@@ -25,6 +31,10 @@
     $chosenNumber = $_GET['choose'] - 1;
     $Cups[$chosenNumber]->liftUp();
     generateField();
+    if ($randomNummer != $_GET['choose']) {
+      // No eachal to each other one point off!
+      $Game->setAmount($Game->getAmount()-1);
+    }
   }
 
   else {
@@ -35,6 +45,7 @@
     global $Player;
     global $Ball;
     global $randomNummer;
+    global $Game;
 
     echo '<div class="cups">';
 
@@ -52,11 +63,13 @@
     }
     echo '</div><div class="clear"></div>';
       echo $Player->show();
+      echo "Points: " . $Game->getAmount();
   }
 
   ?>
   <a href="?choose=1"><button type='button'>1</button></a>
   <a href="?choose=2"><button type='button'>2</button></a>
   <a href="?choose=3"><button type='button'>3</button></a>
+  <a href="?">Herstart</a>
 
 </body>
