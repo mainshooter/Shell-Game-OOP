@@ -14,7 +14,7 @@
   require_once 'Score.class.php';
   require_once 'Game.class.php';
 
-$Game = new Game(3, 'yellow');
+  $Game = new Game(3, 'yellow', 2);
 
 ?>
 <body>
