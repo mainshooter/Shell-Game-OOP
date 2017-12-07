@@ -5,7 +5,8 @@
     private $playerName;
 
     /**
-     * Sets the amount of our socre good
+     * Checks if we have a session of that player and gives the score to the object from the session
+     * @param [string] $playerName [The name of the player wich we need to check]
      */
     public function __construct($playerName) {
       $this->playerName = $playerName;
@@ -18,9 +19,7 @@
         // We reset the score
         $this->setAmount(20);
       }
-
       else {
-        $_SESSION[$this->playerName]['amount'] = 20;
         $this->setAmount(20);
       }
     }
