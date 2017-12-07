@@ -16,6 +16,10 @@
       $this->liftDown();
     }
 
+    /**
+     * Returns the cup and the current state of it
+     * @return [string] [The HTML code of a cup]
+     */
     public function show() {
       return("<div class='cup {$this->color} {$this->status}'>");
     }
