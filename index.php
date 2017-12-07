@@ -14,7 +14,7 @@
   require_once 'Score.class.php';
   require_once 'Game.class.php';
 
-  $amountOfCups = 5;
+  $amountOfCups = 3;
   $Game = new Game($amountOfCups, 'yellow', 2);
 
   $Player[] = new Player('Peter', 20);
@@ -45,6 +45,23 @@
         $Player[$_GET['playerID']]->removeOnePoint();
       }
     }
+    else {
+      for ($i=0; $i < count($currentBallLocations); $i++) {
+        if ($currentBallLocations == $chosenNumber) {
+          // Correct
+          $Player[0]->addOnePoint();
+          $pointRun = true;
+          break;
+        }
+        else {
+          $pointRun = false;
+        }
+      }
+      if ($pointRun == false) {
+        // We remove one point because we didn't chose the right one
+        $Player[0]->removeOnePoint();
+      }
+    }
     $Game->showCupContent($chosenNumber);
     echo $Game->renderField();
     echo $Player[$_GET['playerID']]->show();
@@ -54,6 +71,9 @@
     echo $Game->renderField();
     if (ISSET($_GET['playerID'])) {
       echo $Player[$_GET['playerID']]->show();
+    }
+    else {
+      $Player[0]->show();
     }
   }
 
