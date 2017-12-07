@@ -2,23 +2,25 @@
 
   class Score {
     private $amountPerGame;
+    private $playerName;
 
     /**
      * Sets the amount of our socre good
      */
-    public function __construct() {
-      if (ISSET($_SESSION['amount']) && $_SESSION['amount'] > 0) {
+    public function __construct($playerName) {
+      $this->playerName = $playerName;
+      if (ISSET($_SESSION[$this->playerName]['amount']) && $_SESSION[$this->playerName]['amount'] > 0) {
         // We have the amount on our session
-        $this->setAmount($_SESSION['amount']);
+        $this->setAmount($_SESSION[$this->playerName]['amount']);
       }
 
-      else if ($_SESSION['amount'] == 0) {
+      else if (ISSET($_SESSION[$this->playerName]['amount']) && $_SESSION[$this->playerName]['amount'] == 0) {
         // We reset the score
         $this->setAmount(20);
       }
 
       else {
-        $_SESSION['amount'] = 20;
+        $_SESSION[$this->playerName]['amount'] = 20;
         $this->setAmount(20);
       }
     }
@@ -27,7 +29,7 @@
      * Updates the session with our score amount
      */
     private function amountHandler() {
-      $_SESSION['amount'] = $this->getAmount();
+      $_SESSION[$this->playerName]['amount'] = $this->getAmount();
     }
 
     /**
@@ -36,7 +38,6 @@
      */
     public function setAmount($amount) {
       $this->amountPerGame = $amount;
-      // $this->amountHandler();
     }
 
     /**

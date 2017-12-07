@@ -6,7 +6,6 @@
   class Game {
     private $Cups;
     private $Ball;
-    private $Player;
 
     private $ballLocation;
 
@@ -16,7 +15,6 @@
         $this->Cups[$i]->liftDown();
       }
       $this->Ball = new Ball('red');
-      $this->Player = new Player('Peter', 20);
       for ($i=0; $i < $amountOfBalls; $i++) {
         $this->ballLocation[] = $this->randomBallPosition();
       }
@@ -36,7 +34,6 @@
         $renderResult .= "</div>";
       }
       $renderResult .= '</div><div class="clear"></div>';
-        $renderResult .= $this->Player->show();
         return($renderResult);
     }
 
@@ -44,7 +41,7 @@
       $this->Cups[$CupNumber]->liftUp();
     }
 
-    public function getBallPosition() {
+    public function getBallPositions() {
       return($this->ballLocation);
     }
 
