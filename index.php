@@ -13,8 +13,8 @@
   require_once 'Cup.class.php';
   require_once 'Score.class.php';
   require_once 'Game.class.php';
-
-  $Game = new Game(3, 'yellow', 2);
+  $amountOfCups = 5;
+  $Game = new Game($amountOfCups, 'yellow', 2);
 
 ?>
 <body>
@@ -30,11 +30,11 @@
     echo $Game->renderField();
   }
 
-
+  for ($i=1; $i < $amountOfCups + 1; $i++) {
+    echo '<a href="?choose=' . $i . '"><button type="button">' . $i . '</button></a>';
+  }
   ?>
-  <a href="?choose=1"><button type='button'>1</button></a>
-  <a href="?choose=2"><button type='button'>2</button></a>
-  <a href="?choose=3"><button type='button'>3</button></a>
+
   <a href="?restart=true">Herstart</a>
 
 </body>
