@@ -19,6 +19,7 @@
 
   $Player[] = new Player('Peter', 20);
   $Player[] = new Player('Yara', 20);
+  $Player[] = new Player('Sander', 20);
 ?>
 <body>
   <?php
@@ -28,39 +29,10 @@
     $chosenNumber = $_GET['choose'] - 1;
     if (ISSET($_GET['playerID'])) {
       // We have multiple players
-      $pointRun = false;
-      for ($i=0; $i < count($currentBallLocations); $i++) {
-        if ($currentBallLocations == $chosenNumber) {
-          // Correct
-          $Player[$_GET['playerID']]->addOnePoint();
-          $pointRun = true;
-          break;
-        }
-        else {
-          $pointRun = false;
-        }
-      }
-      if ($pointRun == false) {
-        // We remove one point because we didn't chose the right one
-        $Player[$_GET['playerID']]->removeOnePoint();
-      }
+      $Game->managerScore($Player[$_GET['playerID']], $chosenNumber);
     }
     else {
-      for ($i=0; $i < count($currentBallLocations); $i++) {
-        if ($currentBallLocations == $chosenNumber) {
-          // Correct
-          $Player[0]->addOnePoint();
-          $pointRun = true;
-          break;
-        }
-        else {
-          $pointRun = false;
-        }
-      }
-      if ($pointRun == false) {
-        // We remove one point because we didn't chose the right one
-        $Player[0]->removeOnePoint();
-      }
+      $Game->managerScore($Player[0], $chosenNumber);
     }
     $Game->showCupContent($chosenNumber);
     echo $Game->renderField();
@@ -94,6 +66,5 @@
   }
   ?>
 
-  <a href="?restart=true">Herstart</a>
 
 </body>
